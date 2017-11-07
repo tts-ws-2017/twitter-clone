@@ -3,6 +3,8 @@ class TweetsController < ApplicationController
 
   before_action :authenticate_user!
 
+  include TweetsHelper  
+
   # GET /tweets
   # GET /tweets.json
   def index
@@ -27,6 +29,8 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
+
+    @tweet = get_tagged(@tweet)
 
     respond_to do |format|
       if @tweet.save
