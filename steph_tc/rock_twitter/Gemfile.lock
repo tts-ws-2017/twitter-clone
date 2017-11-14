@@ -45,9 +45,10 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap (4.0.0.beta2.1)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.3, < 2)
+      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -125,6 +126,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    popper_js (1.12.5)
     public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
@@ -216,7 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap (~> 4.0.0.beta2.1)
   byebug
   capybara (~> 2.13)
   carrierwave
@@ -233,6 +235,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails (>= 2.3.2)
   sqlite3
   turbolinks (~> 5)
   tzinfo-data

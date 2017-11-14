@@ -3,13 +3,16 @@
 <p>Here is what your "friends" are saying:</p>
 
 
-<div>
-    <% @following_tweets.each do |tweet| %>
-        <div>
-	    <p>@<%= tweet.user.username %></p>
-	    <p><%= tweet.message.html_safe %></p>
-	</div>
-    <% end %>
+<div class="card card-outline-primary mb-3 text-center">
+ <div class="row">
+ <% @following_tweets.each do |tweet| %>
+  <div class="card-body col-4">
+    <%# <img class="card-img-top" src="..." alt="Card image cap"> %>
+    <blockquote class="card-blockquote">
+      <p class="card-text"><%= tweet.message.html_safe %></p>
+      <footer class="card-text"><small class="text-muted">@<%= tweet.user.username %></small></footer>
+    </blockquote>
+    </div>
+  <% end %>
+  </div>
 </div>
-
-<%= link_to 'New Tweet', new_tweet_path %>
