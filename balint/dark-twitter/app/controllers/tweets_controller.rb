@@ -3,6 +3,8 @@ class TweetsController < ApplicationController
 
   before_action :authenticate_user!
   
+  include TweetsHelper
+  
   # GET /tweets
   # GET /tweets.json
   def index
@@ -26,7 +28,26 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
+    
     @tweet = Tweet.new(tweet_params)
+
+    @tweet = get_tagged(@tweet)
+
+    # message_arr = @tweet.message.split
+
+    # message_arr.each_with_index do |word, index|
+    #   if word[0] == "#"
+    #     if Tag.pluck(:phrase).include?(word)
+    #       tag = Tag.find_by(phrase: word)
+    #     else
+    #       tag = Tag.create(phrase: word)
+    #   end
+    #   tweet_tag = TweetTag.create(tweet_id: @tweet.id, tag_id: tag.id)
+    #   message_arr[index] = "<a href='/tag_tweets?id=#{tag.id}'>#(word)</a>"
+    # end
+  end
+
+  @tweet.update(message: meassge_arr.join(" "))
 
     respond_to do |format|
       if @tweet.save

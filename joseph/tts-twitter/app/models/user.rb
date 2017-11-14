@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, uniqueness: true
-         
+  serialize :following, Array
+  
   has_many :tweets
 
   mount_uploader :avatar, AvatarUploader
